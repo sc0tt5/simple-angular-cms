@@ -1,0 +1,58 @@
+<md-dialog aria-label="File Upload" role="dialog" class="upload-dialog">
+
+    <md-dialog-content class="md-dialog-content" role="document">
+
+        <form name="dialogForm" role="form">
+
+            <md-input-container class="md-block" layout-align="center center">
+
+                <div ngf-drop="" ngf-select="" ng-model="attachedFile" class="drop-box" ngf-drag-over-class="dragover" ngf-multiple="false"
+                    ngf-allow-dir="true" accept="txt/*, application/txt" ng-bind="attachedFile.name ? attachedFile.name : 'Drop PDFs here or click to upload'"
+                    ng-required="true">
+                </div>
+
+                <div ngf-no-file-drop="">File Drag/Drop is not supported for this browser</div>
+
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <input ng-model="file.name" type="text" placeholder="File Name" ng-required="true">
+            </md-input-container>
+
+        </form>
+
+        <md-content flex layout-padding class="content-link">
+
+            <!-- disabled link -->
+            <md-icon   
+                ng-if="!attachedFile || !file.name"              
+                aria-label="copy"
+                class="icon-copy-disabled">content_copy
+            </md-icon>
+        
+            <p ng-if="!attachedFile || !file.name" class="fileLink-disabled">assets.yourdomainname.com/files/</p>
+
+            <!-- active link -->
+            <md-icon 
+                ng-if="attachedFile && file.name"              
+                ngclipboard data-clipboard-target="#fileLink"
+                aria-label="copy"
+                class="icon-copy">content_copy
+            </md-icon>
+
+            <p ng-if="attachedFile && file.name" 
+               id="fileLink" 
+               class="fileLink" 
+               ngclipboard data-clipboard-target="#fileLink">assets.yourdomainname.com/files/<b>{{ file.name | removeSpaces }}</b>
+            </p>
+
+        </md-content>
+
+    </md-dialog-content>
+
+    <md-dialog-actions layout-align="center center">
+        <md-button ng-click="file.cancel()">Cancel</md-button>
+        <md-button ng-click="file.upload(attachedFile, file.name | removeSpaces)" ng-disabled="dialogForm.$invalid">UPLOAD</md-button>
+    </md-dialog-actions>
+
+</md-dialog>

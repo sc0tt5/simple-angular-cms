@@ -1,0 +1,7 @@
+node_modules/*
+.vscode/*
+.eslintignore
+.eslintrc.json
+logs
+results
+npm-debug.log

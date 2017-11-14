@@ -1,0 +1,160 @@
+/* convert testAngular from bootstrap to ngMaterial */
+
+$md-primary: #3f51b5;
+$md-text-secondary: rgba(0, 0, 0, 0.54);
+$md-background-100: #f5f5f5;
+.ta-toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .ta-button-group {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        button {
+            min-width: 0;
+            min-height: 0;
+            line-height: normal;
+            margin-left: 0;
+            color: $md-text-secondary;
+            md-icon {
+                color: $md-text-secondary;
+            }
+            &.active {
+                background-color: $md-background-100;
+            }
+        }
+    }
+}
+
+.ta-text-editor {
+    .ta-bind {
+        height: 200px !important;
+        max-height: 200px !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.117647);
+        &:focus {
+            border-bottom: 1px solid $md-primary;
+            outline: none;
+        }
+    }
+}
+
+.md-icon-text {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.ta-editor {
+    height: 220px !important;
+    max-height: 218px !important;
+    padding-bottom: 1px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    padding-top: 2px !important;
+    .ta-html {
+        min-height: 300px !important;
+    }
+}
+
+.textarea-container {
+    height: 250px !important;
+}
+
+.editor-custom {
+    margin-top: 15vh;
+}
+
+
+/* common */
+
+p,
+span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* cards */
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+}
+
+#vertical-container {
+    height: 100%;
+    width: 100%;
+}
+
+
+/* search */
+
+.icon-clear {
+    right: 35px !important;
+    /* override */
+    font-size: 15px;
+    color: gray !important;
+    cursor: pointer;
+    outline: none;
+}
+
+.toolbar-input {
+    margin-top: 30px;
+}
+
+
+/* file upload dialog */
+
+.content-link {
+    min-height: 7vh;
+    padding: 15px;
+}
+
+.icon-copy {
+    cursor: pointer;
+    outline: none;
+    float: left;
+    margin: auto;
+    padding: 4px;
+    /* override */
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.icon-copy-disabled {
+    cursor: not-allowed;
+    outline: none;
+    float: left;
+    margin: auto;
+    padding: 4px;
+    /* override */
+    color: lightgray;
+}
+
+.fileLink {
+    cursor: pointer;
+    margin: auto;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.fileLink-disabled {
+    cursor: not-allowed;
+    margin: auto;
+    color: lightgray;
+}
+
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: 45vh;
+    height: 15vh;
+    text-align: center;
+    padding: 50px 10px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+.upload-dialog {
+    width: 50vh;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,55 @@
+<div layout="row" layout-align="center center" class="editor-custom">
+    <div layout-fill layout="row">
+    
+        <div flex="33"></div>
+    
+        <div layout="column" flex="33">    
+
+            <span class="md-body-1" 
+                  ng-bind="view.content.publishDate | date :  'M.d.y'">
+            </span>
+            
+            <h3 class="md-title" 
+                ng-bind="view.content.headline">
+            </h3>
+
+            <p class="md-body-1" 
+               ng-bind-html="view.content.body">
+            </p>
+                            
+            <div flex="10"></div>
+            
+            <div layout="row" layout-align="center center" md-padding>                    
+                
+                <md-button ng-model="view.content.status" 
+                           ng-click="view.buttonClick('draft')" 
+                           ng-if="view.content.status === 'published'">Remove
+                </md-button>
+
+                <md-button ng-model="view.content.status" 
+                           ng-click="view.buttonClick('published')" 
+                           ng-if="view.content.status === 'approved'">Publish
+                </md-button>
+
+                <md-button ng-model="view.content.status" 
+                           ng-click="view.buttonClick('approved')" 
+                           ng-if="view.content.status === 'draft'">Approve
+                </md-button>
+                
+                <md-button ng-model="view.content.status" 
+                           ui-sref="app.edit({ id: view.content.id })" 
+                           ng-click="view.buttonClick('draft')">Edit
+                </md-button>
+
+                <md-button ng-model="view.content.status" 
+                           ui-sref="app.list">Back to list
+                </md-button>                       
+                
+            </div>                
+                
+        </div>   
+    
+        <div flex="33"></div>
+
+    </div>
+</div>        

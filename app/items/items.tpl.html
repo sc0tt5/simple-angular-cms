@@ -1,0 +1,69 @@
+<section layout-fill layout="column" flex>  
+
+    
+    <md-whiteframe layout="row" layout-align="start">
+        
+        <span flex="35"></span>
+
+        <md-input-container flex="30" class="toolbar-input">
+
+            <label>Search</label>              
+            <input ng-model="items.search" 
+                   ng-keyup="items.buildGrid(items.search, items.filterStatus)">       
+
+            <md-icon ng-if="items.search" 
+                     ng-click="items.search = null; items.buildGrid(items.search, items.filterStatus);"
+                     aria-label="clear"
+                     class="icon-clear">clear
+            </md-icon>    
+
+        </md-input-container>
+
+        <md-input-container flex="10" class="toolbar-input">
+
+            <label>Filter</label>
+            <md-select ng-model="items.filterStatus"
+                       ng-change="items.buildGrid(items.search, items.filterStatus)">
+                <md-option ng-value="status" 
+                           ng-repeat="status in items.statusList"                            
+                           ng-bind="status">
+                </md-option>
+            </md-select>
+
+        </md-input-container>
+
+        <span flex="25"></span>
+
+        <md-input-container>
+
+            <a ui-sref="app.new">
+                <md-button class="md-fab md-primary" aria-label="add">                    
+                    <i class="material-icons">add</i>                            
+                </md-button>
+            </a>     
+
+        </md-input-container>
+      
+    </md-whiteframe>
+        
+    <md-virtual-repeat-container id="vertical-container">
+            
+        <div md-virtual-repeat="row in items.grid" layout="row" class="repeated-item" flex>
+
+            <div>{{}}</div> <!-- weird - below won't render without some ng stuff here -->
+            
+            <div ng-repeat="content in row track by $index" layout="column" flex>
+                
+                <items-card ng-if="content.id" 
+                           content="content" 
+                           ui-sref="app.view({ id: content.id })">
+                </items-card> 
+            
+            </div>
+
+        </div>
+
+    </md-virtual-repeat-container>
+
+        
+</section>    

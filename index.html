@@ -1,0 +1,58 @@
+<html lang="en" ng-app="app">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title ng-bind="title">News CMS</title>
+    <link rel="icon" href="favicon.ico?" type="image/x-icon" />
+
+    <!-- START: css libs -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.css">
+    <!-- END: css libs -->
+
+    <!-- START: app css -->
+    <link rel="stylesheet" href="../content/css/item.css">
+    <!-- END: app css -->
+
+    <base href="/">
+
+</head>
+
+<body>
+
+    <ui-view></ui-view>
+
+    <!-- START: js libs -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-aria.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-messages.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-sanitize.js"></script>
+    <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>    
+    <script src="../js/textAngular-rangy.min.js"></script>
+    <script src="../js/textAngular-sanitize.min.js"></script>
+    <script src="../js/textAngularSetup.js"></script>
+    <script src="../js/textAngular.min.js"></script>
+    <script src="../js/ng-file-upload.min.js"></script>
+    <script src="//cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+    <script src="../js/ngclipboard.min.js"></script>
+    <!-- END: js libs -->
+
+    <!-- START: app js -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.service.js"></script>
+    <script src="app/items/items-card/items-card.controller.js"></script>
+    <script src="app/items/items-card/items-card.component.js"></script>
+    <script src="app/item-view/item-view.controller.js"></script>
+    <script src="app/item-edit/item-edit.controller.js"></script>
+    <script src="app/item-edit/item-edit-file/item-edit-file.controller.js"></script>
+    <script src="app/items/items.controller.js"></script>
+    <script src="app/app.config.js"></script>
+    <!-- END: app js -->
+
+</body>
+
+</html>
