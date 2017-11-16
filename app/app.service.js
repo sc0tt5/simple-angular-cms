@@ -30,18 +30,29 @@
 
         // set json obj to local storage for demo
         function init() {
-
-            return !localStorage.getItem('contentData') ? $http.get('/app/common/mock-data/mock-content.json', { cache: true })
-                .then(setContentData)
-                .catch(message => {
-                    console.log(message); // TODO send errors to db
-                }) : '';
+            
+            if (!localStorage.getItem('contentData')) {
+                return $http.get('/app/common/mock-data/mock-content.json', { cache: true })
+                    .then(setContentData)
+                    .catch(message => {
+                        console.log(message); // TODO send errors to db
+                    });
+            } else {
+                return setContentData(localStorage.getItem('contentData'));                    
+            }
 
             function setContentData(data) {
-                if (data.data) {
-                    const dataToStore = JSON.stringify(data.data);
-                    $window.localStorage.setItem('contentData', dataToStore);
+
+                if (data) {
+
+                    if (!localStorage.getItem('contentData')) {
+                        const dataToStore = JSON.stringify(data.data);
+                        $window.localStorage.setItem('contentData', dataToStore);                        
+                    } 
+                    return service;
+
                 }
+                
             }
 
         }

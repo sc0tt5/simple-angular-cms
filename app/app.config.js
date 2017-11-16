@@ -29,10 +29,9 @@
                 abstract: true,
                 url: '',
                 resolve: {
-                    contentService: ['ContentService',
+                    appService: ['ContentService',
                         (ContentService) => {
-                            ContentService.init(); // build json and save to local storage for demo                        
-                            return ContentService;
+                            return ContentService.init(); // build json and save to local storage for demo                                
                         }]
                 }
             })
@@ -40,6 +39,13 @@
             .state('app.list', {
                 url: '/',
                 templateUrl: 'app/items/items.tpl.html',
+                resolve: {
+                    contentService: ['appService',
+                        (appService) => {
+                            return appService; // return parent resolve
+                            
+                        }]
+                },
                 controller: 'ItemsCtrl',
                 controllerAs: 'items'
             })
@@ -47,6 +53,13 @@
             .state('app.view', {
                 url: 'view/:id',
                 templateUrl: 'app/item-view/item-view.tpl.html',
+                resolve: {
+                    contentService: ['appService',
+                        (appService) => {
+                            return appService; // return parent resolve
+                            
+                        }]
+                },                
                 controller: 'ItemViewCtrl',
                 controllerAs: 'view'
             })
@@ -54,6 +67,13 @@
             .state('app.new', {
                 url: 'new',
                 templateUrl: 'app/item-edit/item-edit.tpl.html',
+                resolve: {
+                    contentService: ['appService',
+                        (appService) => {
+                            return appService; // return parent resolve
+                            
+                        }]
+                },                
                 controller: 'ItemEditCtrl',
                 controllerAs: 'edit'
             })
@@ -61,6 +81,13 @@
             .state('app.edit', {
                 url: 'edit/:id',
                 templateUrl: 'app/item-edit/item-edit.tpl.html',
+                resolve: {
+                    contentService: ['appService',
+                        (appService) => {
+                            return appService; // return parent resolve
+                            
+                        }]
+                },                
                 controller: 'ItemEditCtrl',
                 controllerAs: 'edit'
             });
