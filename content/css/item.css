@@ -1,93 +1,4 @@
-.card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
-  cursor: pointer;  
-}
-
-.content-link {
-  min-height: 7vh;
-  padding: 15px;
-}
-
-.icon-clear {
-  right: 35px !important;
-  /* md-icon override */
-  font-size: 15px;
-  color: gray !important;
-  cursor: pointer;
-  outline: none;
-}
-
-.icon-copy {
-  cursor: pointer;
-  outline: none;
-  float: left;
-  margin: auto;
-  padding: 4px;
-  /* override */
-  color: rgba(0, 0, 0, 0.54);
-}
-
-.icon-copy-disabled {
-  cursor: not-allowed;
-  outline: none;
-  float: left;
-  margin: auto;
-  padding: 4px;
-  /* override */
-  color: lightgray;
-}
-
-.fileLink {
-  cursor: pointer;
-  margin: auto;
-  color: rgba(0, 0, 0, 0.87);
-  /* ng-style ternary changes color */
-}
-
-.fileLink-disabled {
-  cursor: not-allowed;
-  margin: auto;
-  color: lightgray;
-  /* ng-style ternary changes color */
-}
-
-.toolbar-input {
-  margin-top: 30px;
-}
-
-#vertical-container {
-  height: 100%;
-  width: 100%;
-}
-
-.editor-custom {
-  margin-top: 15vh;
-}
-
-.drop-box {
-  background: #F8F8F8;
-  border: 5px dashed #DDD;
-  width: 45vh;
-  /* 170px */
-  height: 15vh;
-  text-align: center;
-  padding: 50px 10px;
-  margin: auto;
-  margin-bottom: 20px;
-  margin-top: -10px;
-}
-
-p, span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.upload-dialog {
-  width: 50vh;
-  padding-bottom: 10px;
-}
-
-/* convertings testAngular from bootstrap to ngMaterial */
+/* convert testAngular from bootstrap to ngMaterial */
 .ta-toolbar {
   display: flex;
   flex-direction: row;
@@ -139,7 +50,6 @@ p, span {
   padding-left: 2px !important;
   padding-right: 2px !important;
   padding-top: 2px !important;
-  /* border-bottom: 1px !important; */
 }
 
 .ta-editor .ta-html {
@@ -149,5 +59,97 @@ p, span {
 .textarea-container {
   height: 250px !important;
 }
+
+.editor-custom {
+  margin-top: 15vh;
+}
+
+/* common */
+p,
+span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* cards */
+.card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+}
+
+#vertical-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* search */
+.icon-clear {
+  right: 35px !important;
+  /* override */
+  font-size: 15px;
+  color: gray !important;
+  cursor: pointer;
+  outline: none;
+}
+
+.toolbar-input {
+  margin-top: 30px;
+}
+
+/* file upload dialog */
+.content-link {
+  min-height: 7vh;
+  padding: 15px;
+}
+
+.icon-copy {
+  cursor: pointer;
+  outline: none;
+  float: left;
+  margin: auto;
+  padding: 4px;
+  /* override */
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.icon-copy-disabled {
+  cursor: not-allowed;
+  outline: none;
+  float: left;
+  margin: auto;
+  padding: 4px;
+  /* override */
+  color: lightgray;
+}
+
+.fileLink {
+  cursor: pointer;
+  margin: auto;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.fileLink-disabled {
+  cursor: not-allowed;
+  margin: auto;
+  color: lightgray;
+}
+
+.drop-box {
+  background: #F8F8F8;
+  border: 5px dashed #DDD;
+  width: 45vh;
+  height: 15vh;
+  text-align: center;
+  padding: 50px 10px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: -10px;
+}
+
+.upload-dialog {
+  width: 50vh;
+  padding-bottom: 10px;
+}
+ 
 
  /*# sourceMappingURL= item.css.map */
