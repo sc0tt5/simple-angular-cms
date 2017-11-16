@@ -42,8 +42,7 @@
                 resolve: {
                     contentService: ['appService',
                         (appService) => {
-                            return appService; // return parent resolve
-                            
+                            return appService; // return parent resolve                            
                         }]
                 },
                 controller: 'ItemsCtrl',
@@ -56,8 +55,7 @@
                 resolve: {
                     contentService: ['appService',
                         (appService) => {
-                            return appService; // return parent resolve
-                            
+                            return appService; // return parent resolve                            
                         }]
                 },                
                 controller: 'ItemViewCtrl',
@@ -70,8 +68,7 @@
                 resolve: {
                     contentService: ['appService',
                         (appService) => {
-                            return appService; // return parent resolve
-                            
+                            return appService; // return parent resolve                            
                         }]
                 },                
                 controller: 'ItemEditCtrl',
@@ -84,8 +81,7 @@
                 resolve: {
                     contentService: ['appService',
                         (appService) => {
-                            return appService; // return parent resolve
-                            
+                            return appService; // return parent resolve                            
                         }]
                 },                
                 controller: 'ItemEditCtrl',
