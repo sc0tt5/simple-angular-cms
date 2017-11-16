@@ -1,5 +1,7 @@
 # Simple Angular CMS
 
+Demo is available at: https://codepen.io/sc0tt5/project/full/AJdYgL
+
 A simple Angular CMS built with:
 
 * [AngularJS 1.6.6](https://angularjs.org)
@@ -32,6 +34,6 @@ npm install
 
 ## ToDo
 
-* Demo
+* Mobile/responsive
 * Unit Test
 * Angular 5
