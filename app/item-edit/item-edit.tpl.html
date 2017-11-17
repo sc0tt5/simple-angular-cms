@@ -12,20 +12,20 @@
                         <label>Name</label>
                         <input type="text" ng-model="edit.content.name" ng-change="edit.updateArticleId(edit.content.name | removeSpaces)" />
                     </md-input-container>
-                    <md-input-container>
+                    <md-input-container  class="md-block">
                         <label>Publish date</label>
                         <md-datepicker ng-model="edit.content.publishDate" md-open-on-focus></md-datepicker>
                     </md-input-container>
                 </div>
 
                 <div layout="row">
-                    <md-input-container class="md-block" flex-gt-sm>
+                    <md-input-container class="md-block" flex="100">
                         <label>Headline</label>
                         <input type="text" ng-model="edit.content.headline" />
                     </md-input-container>
                 </div>
 
-                <div layout="row">
+                <div layout="row" class="content-editor">
                     <md-input-container class="md-block textarea-container" flex-gt-sm>
                         <label ng-show="edit.content.body">Body</label>
                         <text-angular ng-model="edit.content.body"></text-angular>
