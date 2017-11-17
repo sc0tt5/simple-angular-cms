@@ -97,7 +97,7 @@
                 ['h1', 'h2', 'h3', 'p', 'pre', 'quote',
                  'bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear',
                  'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull',
-                 'html', 'insertImage', 'insertLink']
+                 'html', 'insertImage', 'insertLink'] // all in same button group
             ];
             taOptions.classes = {
                 focussed: 'md-input-focused', // md-input-focused
