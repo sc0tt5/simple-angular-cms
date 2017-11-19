@@ -27,7 +27,7 @@
         vm.upload = (file, fileName) => {
             $mdDialog.hide(); // close dialog
             fileName + '.' + file.name.split('.', 2)[1]; // set file name from file name input
-            $scope.$$prevSibling.$resolve.contentService.uploadFile(file); // save file
+            $scope.$$prevSibling.$resolve.appService.uploadFile(file); // save file
         }
 
     }
