@@ -1,0 +1,19 @@
+<md-virtual-repeat-container id="vertical-container">
+        
+    <div md-virtual-repeat="row in items.grid" layout="row" class="repeated-item" flex>
+
+        <div>{{}}</div> <!-- weird - below won't render without some ng stuff here -->
+        
+        <div ng-repeat="content in row track by $index" layout="column" flex>
+            
+            <items-card ng-if="content.id" 
+                        content="content" 
+                        ui-sref="app.view({ id: content.id })">
+            </items-card> 
+        
+        </div>
+
+    </div>
+
+</md-virtual-repeat-container>
+

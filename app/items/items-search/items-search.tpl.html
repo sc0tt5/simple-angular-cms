@@ -1,0 +1,45 @@
+<md-whiteframe layout="row" layout-align="start" class="search-toolbar">
+    
+    <span flex="35"></span>
+
+    <md-input-container flex="30" class="toolbar-input">
+
+        <label>Search</label>              
+        <input ng-model="search.searchText" 
+                ng-keyup="search.searchList(search.searchText, search.filterText)"
+                ng-focus>       
+
+        <md-icon ng-if="search.searchText" 
+                    ng-click="search.searchText = null; search.filterList(search.searchText, search.filterText);"
+                    aria-label="clear"
+                    class="icon-clear">clear
+        </md-icon>    
+
+    </md-input-container>
+
+    <md-input-container flex="10" class="toolbar-input">
+
+        <label>Filter</label>
+        <md-select ng-model="search.filterText"
+                    ng-change="search.filterList(search.searchText, search.filterText)">
+            <md-option ng-value="status" 
+                        ng-repeat="status in search.statusList"                            
+                        ng-bind="status">
+            </md-option>
+        </md-select>
+
+    </md-input-container>
+
+    <span flex="25"></span>
+
+    <md-input-container>
+
+        <a ui-sref="app.new">
+            <md-button class="md-fab md-primary" aria-label="add">                    
+                <i class="material-icons">add</i>                            
+            </md-button>
+        </a>     
+
+    </md-input-container>
+    
+</md-whiteframe>  

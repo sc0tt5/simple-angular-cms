@@ -17,8 +17,8 @@
 
     <md-card-footer layout="row" layout-align="left center" class="vertical-align-custom">
         <i class="material-icons" 
-           ng-style="{'color' : card.content.status === 'published' ? 'green' : 'red'}" 
-           ng-bind="card.content.status === 'published' ? card.isFutureDate(card.content.publishDate) ? 'event' : 'check_circle' : 'feedback'">            
+           ng-style="{'color' : card.content.status === 'published' ? 'green' : 'silver'}" 
+           ng-bind="card.content.status === 'published' ? card.isFutureDate(card.content.publishDate) ? 'event' : 'check_circle' : card.content.status === 'approved' ? 'thumb_up' : 'create'">
         </i>        
         <span layout-margin class="md-caption" 
               ng-bind="card.content.publishDate | date :  'M.d.y'">

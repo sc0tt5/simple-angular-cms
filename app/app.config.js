@@ -27,7 +27,6 @@
         $stateProvider
             .state('app', {
                 abstract: true,
-                url: '',
                 resolve: {
                     appService: ['ContentService',
                         (ContentService) => {
@@ -36,16 +35,21 @@
                 }
             })
 
-            .state('app.list', {
-                url: '/',
-                templateUrl: 'app/items/items.tpl.html',
+            .state('app.search', {
+                url: '',
+                templateUrl: 'app/items/items.tpl.html'                
+            })
+
+            .state('app.search.results', {
+                url: '/?search&filter',
+                templateUrl: 'app/items/items-list/items-list.tpl.html',
                 resolve: {
                     contentService: ['appService',
                         (appService) => {
                             return appService; // return parent resolve                            
                         }]
                 },
-                controller: 'ItemsCtrl',
+                controller: 'ItemsListCtrl',
                 controllerAs: 'items'
             })
 
@@ -57,7 +61,7 @@
                         (appService) => {
                             return appService; // return parent resolve                            
                         }]
-                },                
+                },
                 controller: 'ItemViewCtrl',
                 controllerAs: 'view'
             })
@@ -70,7 +74,7 @@
                         (appService) => {
                             return appService; // return parent resolve                            
                         }]
-                },                
+                },
                 controller: 'ItemEditCtrl',
                 controllerAs: 'edit'
             })
@@ -83,7 +87,7 @@
                         (appService) => {
                             return appService; // return parent resolve                            
                         }]
-                },                
+                },
                 controller: 'ItemEditCtrl',
                 controllerAs: 'edit'
             });
@@ -95,9 +99,9 @@
             taOptions.keyMappings = [];
             taOptions.toolbar = [
                 ['h1', 'h2', 'h3', 'p', 'pre', 'quote',
-                 'bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear',
-                 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull',
-                 'html', 'insertImage', 'insertLink'] // all in same button group
+                    'bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear',
+                    'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull',
+                    'html', 'insertImage', 'insertLink'] // all in same button group
             ];
             taOptions.classes = {
                 focussed: 'md-input-focused', // md-input-focused
@@ -142,14 +146,18 @@
     }
 
     // manually identify dependencies - minification-safe
-    stateChange.$inject = ['$rootScope'];
+    stateChange.$inject = ['$rootScope', '$location'];
     // state change 
-    function stateChange($rootScope) {
+    function stateChange($rootScope, $location) {
 
         $rootScope.$on('$viewContentLoaded', function (event, toState) { // eslint-disable-line angular/no-run-logic  
-            /* , toParams, fromState, fromParams */
-            // update title
+            // update title            
             $rootScope.title = toState ? (toState.controller ? `News CMS - ${toState.viewDecl.controllerAs.toUpperCase()}` : `News CMS`) : `News CMS`;
+        });
+
+        // list page filtering tracking for back button
+        $rootScope.$on('$locationChangeSuccess', () => { // eslint-disable-line angular/no-run-logic  
+           $rootScope.searchQueryString = $location.$$path === '/' && $location.$$search ? $location.$$search : $rootScope.searchQueryString;
         });
 
     }

@@ -1,3 +1,8 @@
+html, body {
+    overflow: hidden !important; /* override to prevent scrollbar on md-datepicker */
+}
+
+
 /* convert testAngular from bootstrap to ngMaterial */
 
 $md-primary: #3f51b5;
@@ -65,8 +70,10 @@ $md-background-100: #f5f5f5;
 }
 
 .content-editor {
-    margin-bottom: 5em; /* add margin between editor and buttons */
+    margin-bottom: 5em;
+    /* add margin between editor and buttons */
 }
+
 
 /* common */
 
@@ -92,6 +99,11 @@ span {
 
 /* search */
 
+.search-toolbar {
+    position: fixed;
+    width: 100%;
+}
+
 .icon-clear {
     right: 35px !important;
     /* override */
@@ -103,6 +115,16 @@ span {
 
 .toolbar-input {
     margin-top: 30px;
+}
+
+.results-container {
+    position: relative;
+    top: 6em;
+    height: 89%;
+}
+
+.list-section {
+    overflow: hidden;
 }
 
 

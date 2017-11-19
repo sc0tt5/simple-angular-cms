@@ -14,9 +14,9 @@
         .controller('ItemEditCtrl', ItemEditCtrl);
 
     // manually identify dependencies - minification-safe
-    ItemEditCtrl.$inject = ['$stateParams', '$mdDialog', 'contentService'];
+    ItemEditCtrl.$inject = ['$stateParams', '$mdDialog', '$window', 'contentService'];
 
-    function ItemEditCtrl($stateParams, $mdDialog, contentService) {
+    function ItemEditCtrl($stateParams, $mdDialog, $window, contentService) {
 
         var vm = this;
         vm.id = $stateParams.id ? $stateParams.id : null;
@@ -57,6 +57,11 @@
             });
 
         }
+
+        // go back to previous state
+        vm.goBack = function() {
+            $window.history.back();
+        };
 
     }
 
